@@ -17,24 +17,60 @@ function Train(){
     for (var i = 0; i < train7.shape[3]; i++) {   
         var features = train7.pick(null, null, null, i).reshape(1,120);
         knnClassifier.addExample(features.tolist(),7);
+        var features = train7Fisher.pick(null, null, null, i).reshape(1,120);
+        knnClassifier.addExample(features.tolist(),7);
+        var features = train7Bongard.pick(null, null, null, i).reshape(1,120);
+        knnClassifier.addExample(features.tolist(),7);
         features = train9.pick(null, null, null, i).reshape(1,120);
         knnClassifier.addExample(features.tolist(),9);
         features = train1.pick(null, null, null, i).reshape(1,120);
+        knnClassifier.addExample(features.tolist(),1);
+        features = train1Bongard.pick(null, null, null, i).reshape(1,120);
+        knnClassifier.addExample(features.tolist(),1);
+//        features = train1Rice.pick(null, null, null, i).reshape(1,120);
+//        knnClassifier.addExample(features.tolist(),1);
+         features = train1Li.pick(null, null, null, i).reshape(1,120);
         knnClassifier.addExample(features.tolist(),1);
         features = train0.pick(null, null, null, i).reshape(1,120);
         knnClassifier.addExample(features.tolist(),0);
         features = train3.pick(null, null, null, i).reshape(1,120);
         knnClassifier.addExample(features.tolist(),3);
+        features = train3Bongard.pick(null, null, null, i).reshape(1,120);
+         knnClassifier.addExample(features.tolist(),3);
+        features = train3Shi.pick(null, null, null, i).reshape(1,120);
+        knnClassifier.addExample(features.tolist(),3);
+        features = train3Riofrio.pick(null, null, null, i).reshape(1,120);
+        knnClassifier.addExample(features.tolist(),3);
         features = train4.pick(null, null, null, i).reshape(1,120);
         knnClassifier.addExample(features.tolist(),4);
-        features = train5.pick(null, null, null, i).reshape(1,120);
+         features = train4Makovsky.pick(null, null, null, i).reshape(1,120);
+        knnClassifier.addExample(features.tolist(),4);
+//        features = train4Bongard.pick(null, null, null, i).reshape(1,120);
+//        knnClassifier.addExample(features.tolist(),4);
+//        features = train5.pick(null, null, null, i).reshape(1,120);
+//        knnClassifier.addExample(features.tolist(),5);
+         features = train5Bongard.pick(null, null, null, i).reshape(1,120);
         knnClassifier.addExample(features.tolist(),5);
-        features = train6.pick(null, null, null, i).reshape(1,120);
+        features = train5Fekert.pick(null, null, null, i).reshape(1,120);
+        knnClassifier.addExample(features.tolist(),5);
+        features = train5Shi.pick(null, null, null, i).reshape(1,120);
+        knnClassifier.addExample(features.tolist(),5);
+//        features = train6.pick(null, null, null, i).reshape(1,120);
+//        knnClassifier.addExample(features.tolist(),6);
+        features = train6Bongard.pick(null, null, null, i).reshape(1,120);
+        knnClassifier.addExample(features.tolist(),6);
+         features = train6Makovsky.pick(null, null, null, i).reshape(1,120);
+        knnClassifier.addExample(features.tolist(),6);
+        features = train6Fisher.pick(null, null, null, i).reshape(1,120);
         knnClassifier.addExample(features.tolist(),6);
         features = train8.pick(null, null, null, i).reshape(1,120);
         knnClassifier.addExample(features.tolist(),8);
-        features = train2.pick(null, null, null, i).reshape(1,120);
+//        features = train2.pick(null, null, null, i).reshape(1,120);
+//        knnClassifier.addExample(features.tolist(),2);
+        features = train2Sheboy.pick(null, null, null, i).reshape(1,120);
         knnClassifier.addExample(features.tolist(),2);
+//        features = train2Bongard.pick(null, null, null, i).reshape(1,120);
+//        knnClassifier.addExample(features.tolist(),2);
   }
 }
 
@@ -49,14 +85,14 @@ function Test(){
 function GotResults(err, result){
     var average = 0;
       var currentPrediction = result.label;
-      //console.log(currentPrediction);
+      console.log(currentPrediction);
       predictedClassLabels.set(parseInt(result.label));
       numberPrediction+=1;
       //console.log(testingSampleIndex + ": " + predictedClassLabels.get(testingSampleIndex));
-      predictionAccuracyAverage = (((numberPrediction-1)*predictionAccuracyAverage) + (currentPrediction==2))/numberPrediction;
+      //predictionAccuracyAverage = (((numberPrediction-1)*predictionAccuracyAverage) + (currentPrediction==8))/numberPrediction;
       //console.log(predictionAccuracyAverage);
       //console.log(numberPrediction + " " + predictionAccuracyAverage + " " + currentPrediction);
-      console.log(predictionAccuracyAverage);
+      //console.log(predictionAccuracyAverage);
  
       
   
